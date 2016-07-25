@@ -252,6 +252,9 @@ export class TagInput extends TagInputAccessor implements TagInputComponent, OnI
 
         // if valid:
         if (isValid) {
+            // put items in array through filter to delete original reference (ngModel reference bug fix)
+            this.items = this.items.filter(_item => _item);
+            
             // append item to the ngModel list
             this.items.push(item);
 
